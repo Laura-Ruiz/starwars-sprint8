@@ -1,46 +1,42 @@
 import React, { useState } from "react";
-import "../styles/register.css"
-import logoRegister from "../img/descarga.png"
-import ValidateLogin from "./ValidationLogin";
+import "../styles/register.css";
+import logoRegister from "../img/descarga.png";
+import ValidateLogin from "../components/ValidationLogin";
 import { useNavigate } from "react-router-dom";
 
 export default function Login(props) {
-
-  const [clientFilter, setClientFilter] = useState([])
-  const [isAuthenticated, setisAutheticated] = useState(null)
-  const [errorLogin, setErrorLogin] = useState({})
+  const [clientFilter, setClientFilter] = useState([]);
+  const [isAuthenticated, setisAutheticated] = useState(null);
+  const [errorLogin, setErrorLogin] = useState({});
 
   function handleClickLogin(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    props.addNewUserLogin()
-    setErrorLogin(ValidateLogin(props.dataLogin))
+    props.addNewUserLogin();
+    setErrorLogin(ValidateLogin(props.dataLogin));
 
-    filterClientList()
+    filterClientList();
   }
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function filterClientList(event) {
-
-    const clienteFiltrado = [...props.clientList].filter(client => {
-      return client.email.includes(props.dataLogin.emailLogin)
-    })
-
+    const clienteFiltrado = [...props.clientList].filter((client) => {
+      return client.email.includes(props.dataLogin.emailLogin);
+    });
 
     if (clienteFiltrado[0].password === props.dataLogin.passwordLogin) {
-      setClientFilter([...clienteFiltrado])
-      setisAutheticated(true)
-      setTimeout(() => login(), 3000)
+      setClientFilter([...clienteFiltrado]);
+      setisAutheticated(true);
+      setTimeout(() => login(), 3000);
     } else {
-      setisAutheticated(false)
+      setisAutheticated(false);
     }
   }
 
-
   function login() {
-    setisAutheticated(true)
-    navigate('/')
+    setisAutheticated(true);
+    navigate("/");
   }
 
   return (
@@ -56,7 +52,9 @@ export default function Login(props) {
             onChange={(e) => props.handleChangeLogin(e)}
             placeholder="Email Address"
           />
-          {errorLogin.emailLogin && <p className="error">{errorLogin.emailLogin}</p>}
+          {errorLogin.emailLogin && (
+            <p className="error">{errorLogin.emailLogin}</p>
+          )}
         </div>
 
         <div>
@@ -67,16 +65,22 @@ export default function Login(props) {
             onChange={(e) => props.handleChangeLogin(e)}
             placeholder="Password"
           />
-          {errorLogin.passwordLogin && <p className="error">{errorLogin.passwordLogin}</p>}
+          {errorLogin.passwordLogin && (
+            <p className="error">{errorLogin.passwordLogin}</p>
+          )}
         </div>
 
-        <button type="submit" onClick={(e) => handleClickLogin(e)}>Login</button>
+        <button type="submit" onClick={(e) => handleClickLogin(e)}>
+          Login
+        </button>
 
         {isAuthenticated === true ? (
           <p className="success">You are now logged in </p>
         ) : isAuthenticated === false ? (
           <p className="error">You are not registered</p>
-        ) : ''}
+        ) : (
+          ""
+        )}
       </form>
     </div>
   );
