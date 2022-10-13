@@ -6,7 +6,7 @@ This app was created as the 8th exercise from IT Academy - Barcelona.
 
 In this app you will be able to see all information about all Star Wars Starships.
 
-[See deployed web here](https://laura-ruiz.github.io/)starwars-sprint8/
+[See deployed web here](https://laura-ruiz.github.io/starwars-sprint8/)
 
 ## Screen shots
 
