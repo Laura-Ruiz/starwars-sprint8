@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Starships from "./pages/Starship";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
