@@ -81,7 +81,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Navbar setUserLogin={setUserLogin} userLogin={userLogin} />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -125,7 +125,7 @@ function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
