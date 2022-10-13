@@ -8,7 +8,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Shipdetails from "./components/Shipdetails";
 import Protected from "./components/Protected";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [starShips, setStarShips] = useState([]);
